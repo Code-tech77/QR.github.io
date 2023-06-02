@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR webpage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+   <!--import google fonts--> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+    <h1>Mohammed W Zuoriki</h1>
+    <p>Enter your text or URL</p>
+    <input type="text" placeholder="TEXT OR URL" id="qrText">
+    <p1 id="demo"></p1>
+   <div id="imgBox">
+    <img src="" id="qrImage">
+   </div>
+    <button onclick="generateQR()">Get Your own "QR CODE"</button>
+</div>
+
+<!--JAVASCRIPT-->
+<script>
+
+ let imgBox   = document.getElementById("imgBox");
+ let qrImage   = document.getElementById("qrImage");
+ let qrText   = document.getElementById("qrText");
+ let demo   = document.getElementById("demo");
+
+//QR Code API
+function generateQR(){
+    if(qrText.value.length > 0){
+        qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
+    imgBox.classList.add("show-img")  
+    document.getElementById("demo").innerHTML = "Congratulation you create your own QRCode..YEAH!";   
+    }else{
+        qrText.classList.add('error');
+        setTimeout(()=>{
+            qrText.classList.remove('error');
+        },1000);
+    }
+}
+function myfunction() {
+
+}
+
+</script>
+
+</body>
+</html>
